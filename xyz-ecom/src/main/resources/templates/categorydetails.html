@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>XYZ Ecommerce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" data-th-href="@{/css/gtvg.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Category Details</h1>
+				<a th:href=@{/admin}> Go to Home</a>				
+				<table class="table" style="background: white;border: 2px solid black">
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>CAT ID</th>
+						<th>LAST UPDATED</th>
+					</tr>
+					<tr th:each="cat : ${categories}">
+						<td th:text="${cat.id}"></td>
+						<td th:text="${cat.name}"></td>
+						<td th:text="${cat.cat_id}"></td>
+						<td th:text="${cat.lastUpdate}"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

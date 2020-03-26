@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>XYZ Ecommerce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" data-th-href="@{/css/gtvg.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">XYZ Ecommerce Search</h1>
+			<p class="lead">Search by: Brand,Price,Size,SKU,Color</p>
+			
+			<div style="padding-bottom: 20px;">
+			<a th:href="@{/openCategory}">Add-new-Category</a>
+			<a style="margin-left: 20px;" th:href="@{/openProduct}">Add-new-Product</a>
+			<a style="margin-left: 20px;" th:href="@{/openDelete}">Delete-a-Product</a>
+			<a style="margin-left: 20px;" th:href="@{/categoryDetail}">View-Category-Details</a>
+			</div>
+
+			<form th:object="${productForm}" th:action="@{/showadmin}" method="get">
+				<div class="input-group md-form form-sm form-2 pl-0">
+					<select th:field="*{catType}">
+						<option value="">Select</option>
+						<option name="catType" id="catType" th:each="cat : ${dropDown}" th:value="${cat}"
+							th:utext="${cat}" />
+					</select> 
+					<input class="form-control my-0 py-1 amber-border" type="text"
+						name="search" id="search" th:value="${search}">
+					<div class="input-group-append">
+						<button style="background: dimgrey" onclick=""
+							class="btn btn-elegant btn-rounded btn-sm my-0" type="submit">Search</button>
+					</div>
+
+				</div>
+				<h2>XYZ Ecommerce Products</h2>
+				<table class="table" style="background: white;border: 2px solid black">
+					<tr>
+						<th>ID</th>
+						<th>SKU</th>
+						<th>BRAND</th>
+						<th>CATEGORY ID</th>
+						<th>NAME</th>
+						<th>DESCRIPTION</th>
+						<th>COLOR</th>
+						<th>PRICE</th>
+						<th>SIZE</th>
+						<th>STOCK</th>
+						<th>LAST UPDATED</th>
+					</tr>
+					<tr th:each="product : ${products}">
+						<td th:text="${product.id}"></td>
+						<td th:text="${product.SKU}"></td>
+						<td th:text="${product.brandName}"></td>
+						<td th:text="${product.catId}"></td>
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.description}"></td>
+						<td th:text="${product.color}"></td>
+						<td th:text="${product.price}"></td>
+						<td th:text="${product.size}"></td>
+						<td th:text="${product.stock}"></td>
+						<td th:text="${product.lastUpdate}"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

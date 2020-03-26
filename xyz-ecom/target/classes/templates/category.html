@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>XYZ Ecommerce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" data-th-href="@{/css/gtvg.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Add new Category</h1>
+			<a th:href=@{/admin}> Go to Home</a><br>
+			<form th:object="${categoryForm}" th:action="@{/addCategory}" method="post">
+			<label for="name">Name : </label>
+			<input type="text" id="name" name="name" autofocus="autofocus">
+			<label for="cat_id">Category ID : </label>
+			<input type="number" id="cat_id" name="cat_id" >
+			<input type="submit" name="Create">
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

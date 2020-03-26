@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>XYZ Ecommerce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" data-th-href="@{/css/gtvg.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+			<div class="jumbotron jumbotron-fluid">
+				<div class="container">
+					<h4 class="display-4">Product added successfully with SKU : </h4>
+					<h4 th:text="${SKU}"></h4>
+					
+					<a th:href=@{/admin}> Go to Home</a>
+				</div>
+			</div>
+
+</body>
+
+</html>
